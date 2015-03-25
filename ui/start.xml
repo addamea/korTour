@@ -9,9 +9,9 @@
 			<LABEL text="[관광정보 검색] "/>
 			
 			<WINDOW align="relative">
-				<LABEL layout="0,0,100,60" text="지역 : " />
-				<SPINNER id="area" layout="100,0,135,auto" title="지역" dataList="//item" valuePath=".//code/text()" textPath=".//name/text()" onChange="function.updateSigungu(caller.value)"/>
-				<SPINNER id="sigungu" layout="100,0,135,auto" title="시/군/구" dataList="//item" valuePath=".//code/text()" textPath=".//name/text()"/>
+				<LABEL layout="0,0,50,60" text="지역 : " />
+				<SPINNER id="area" layout="50,0,135,auto" title="지역" dataList="//item" valuePath=".//code/text()" textPath=".//name/text()" onChange="function.updateSigungu(caller.value)"/>
+				<SPINNER id="sigungu" layout="185,0,135,auto" title="시/군/구" dataList="//item" valuePath=".//code/text()" textPath=".//name/text()"/>
 			</WINDOW>
 			
 			<WINDOW align="linear:subCenter">
