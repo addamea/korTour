@@ -17,7 +17,7 @@
 			<WINDOW align="linear:subCenter">
 				<LABEL text="타입 : " />
 				<SPINNER id="contentType" layout="150,auto" title="타입" dataSource="contentTypeIds.xml" dataList="//item" valuePath=".//code/text()" textPath=".//name/text()"/>
-				<BUTTON layout="60,30" text="검색" onClick="function.search" />
+				<BUTTON layout="60,30" text="검색" onClick="userVariable.count ++; caller.text = userVariable.count+‘회 터치함’; " />
 			</WINDOW>
 			
 			<WINDOW layout="300,350" align="relative">
@@ -129,5 +129,4 @@
 		<CMD cmd="detailOverview.visible = true" />
 	</FUNCTION>
 </MOML>
-
 
