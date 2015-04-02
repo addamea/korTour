@@ -62,6 +62,7 @@
 
 	<FUNCTION id="updateArea">
 		<CMD cmd="url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?' + userVariable.commonParam"/>
+		<CMD cmd="device.log(url)"/>
 		<!-- <CMD cmd="xml = file.read(url)" /> -->
 		<!-- <CMD condition="function.checkResultCode(xml)"> -->
 			<CMD cmd="area.dataSource = xml" />
@@ -74,11 +75,13 @@
 	<FUNCTION id="updateSigungu(areaCode)">
 		<CMD cmd="url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?' + userVariable.commonParam"/>
 		<CMD cmd="url = url + '&amp;areaCode=' + areaCode" />
+		<CMD cmd="device.log(url)"/>
 		<CMD cmd="xml = file.read(url)" />
 		<CMD condition="function.checkResultCode(xml)" cmd="sigungu.dataSource = xml" />
 	</FUNCTION>
 	
 	<FUNCTION id="checkResultCode(xml)">
+		<CMD cmd="device.log(xml)"/>
 		<CMD cmd="resultCode = xpath.evaluateEx(xml, '//resultCode/text()')"/>
 		<RETURN condition="resultCode == 0" cmd="true" />
 		<CMD cmd="resultMsg = xpath.evaluateEx(xml, '//resultMsg/text()')"/>
@@ -91,6 +94,7 @@
 		<CMD cmd="url = url + '&amp;areaCode=' + area.value" />
 		<CMD cmd="url = url + '&amp;sigunguCode=' + sigungu.value" />
 		<CMD cmd="url = url + '&amp;contentTypeId=' + contentType.value" />
+		<CMD cmd="device.log(url)"/>
 		<CMD cmd="xml = file.read(url)" />
 		<CMD condition="function.checkResultCode(xml)" cmd="tourList.dataSource = xml" />
 	</FUNCTION>
@@ -118,6 +122,7 @@
 		<CMD cmd="url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?' + userVariable.commonParam"/>
 		<CMD cmd="url = url + '&amp;contentId=' + contentId" />
 		<CMD cmd="url = url + '&amp;overviewYN=Y'" />
+		<CMD cmd="device.log(url)"/>
 		<CMD cmd="xml = file.read(url)" />
 		<CMD cmd="overview = xpath.evaluateEx(xml, '//overview/text()')" />
 		<!-- overview가 전부 한문단으로 나오면 읽기 힘드므로 '다. ' 기준으로 br 태그를 넣어준다. -->
