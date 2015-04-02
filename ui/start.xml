@@ -124,6 +124,7 @@
 		<CMD cmd="url = url + '&amp;overviewYN=Y'" />
 		<CMD cmd="device.log(url)"/>
 		<CMD cmd="xml = file.read(url)" />
+		<CMD cmd="device.log(xml)"/>
 		<CMD cmd="overview = xpath.evaluateEx(xml, '//overview/text()')" />
 		<!-- overview가 전부 한문단으로 나오면 읽기 힘드므로 '다. ' 기준으로 br 태그를 넣어준다. -->
 		<CMD cmd="overview = string.replace(overview, '다. ', '다.&lt;br/&gt;&lt;br/&gt;&amp;nbsp; ')" />
